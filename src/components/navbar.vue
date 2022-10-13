@@ -8,19 +8,27 @@
                 </div>
             </RouterLink>
 
-            <div class="text-3xl flex gap-3">
-                <i class="fa-solid fa-circle-info text-white hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
+            <div class="text-3xl flex gap-4">
+                <i @click="toggleModal()"
+                class="fa-solid fa-circle-info text-white hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
+
                 <i class="fa-solid fa-plus text-[#ebecff] hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
             </div>
-            
         </nav>
         
-        <Modal/>
+        <Modal :showModal="showModal" @close-modal="toggleModal()"/>
 
     </header>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import Modal from './modal.vue';
+
+const showModal=ref(null)
+
+const toggleModal=()=>{
+    showModal.value=!showModal.value
+}
 </script>
