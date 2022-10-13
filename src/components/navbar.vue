@@ -7,14 +7,15 @@
                     <h1 class="text-[#d5f0c5]">Vweather</h1>
                 </div>
             </RouterLink>
+
+            <div class="text-3xl flex gap-3">
+                <i class="fa-solid fa-circle-info text-white hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
+                <i class="fa-solid fa-plus text-[#ebecff] hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
+            </div>
             
-            <i class="fa-solid fa-circle-info text-3xl text-white
-            hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
         </nav>
         
-        <Teleport to="body">
-            <Modal/>
-        </Teleport>
+        <Modal/>
 
     </header>
 </template>
