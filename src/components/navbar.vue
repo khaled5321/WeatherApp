@@ -3,8 +3,8 @@
         <nav class="container mx-auto p-5 flex justify-between">
             <RouterLink :to="{name:'home'}">
                 <div class="flex items-center gap-2 text-3xl">
-                    <i class="fa-solid fa-sun text-white"></i>
-                    <h1 class="text-[#d5f0c5]">Vweather</h1>
+                    <i class="fa-solid fa-sun text-yellow-400"></i>
+                    <h1 class="text-white">Vweather</h1>
                 </div>
             </RouterLink>
 
