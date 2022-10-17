@@ -3,7 +3,7 @@
         <div v-if="showModal"
         class="absolute flex items-center w-full top-0 left-0 h-full bg-black bg-opacity-30">
             <div v-show="showModal"
-            class="flex flex-col w-[70vw] h-fit mx-auto bg-slate-100 rounded-md p-5 shadow-2xl font-semibold">
+            class="flex flex-col w-[70vw] h-fit mx-auto bg-slate-100 rounded-md p-5 shadow-2xl font-semibold text-black">
         
                 <div class="flex flex-col gap-2">
                     <h2 class="text-xl text-[#458b7a]">About:</h2>
@@ -40,7 +40,7 @@
                 </div>
 
                 <button @click="$emit('close-modal')"
-                class="self-center px-4 py-2 mt-4 bg-secondary rounded w-fit text-slate-200">
+                class="self-center px-4 py-2 mt-4 bg-secondary rounded w-fit text-white">
                     Close
                 </button>
             </div>

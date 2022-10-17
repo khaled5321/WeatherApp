@@ -1,18 +1,18 @@
 <template>
-    <header class="bg-[#607253] shadow-md">
+    <header class="bg-black shadow-sm shadow-white">
         <nav class="container mx-auto p-5 flex justify-between">
             <RouterLink :to="{name:'home'}">
                 <div class="flex items-center gap-2 text-3xl">
                     <i class="fa-solid fa-sun text-yellow-400"></i>
-                    <h1 class="text-white">Vweather</h1>
+                    <h1 class="font-serif text-secondary">Vweather</h1>
                 </div>
             </RouterLink>
 
             <div class="text-3xl flex gap-4">
                 <i @click="toggleModal()"
-                class="fa-solid fa-circle-info text-white hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
+                class="fa-solid fa-circle-info text-white hover:cursor-pointer transition-colors hover:text-primary-focus duration-300"></i>
 
-                <i class="fa-solid fa-plus text-[#ebecff] hover:cursor-pointer transition-colors hover:text-[#a3a3a3] duration-300"></i>
+                <i class="fa-solid fa-plus text-[#ebecff] hover:cursor-pointer transition-colors hover:text-primary-focus duration-300"></i>
             </div>
         </nav>
         
