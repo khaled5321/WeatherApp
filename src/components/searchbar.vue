@@ -9,15 +9,25 @@
         class="w-[19rem] sm:w-[24rem] md:w-[28rem] focus:outline-none bg-transparent border-b-2 p-1 
         text-white font-semibold placeholder:text-[#cabffb]">
 
-        <div v-if="showResults"
-        class="absolute bg-neutral-content text-secondary-content p-2 top-[79%] w-[90.3%] left-[1.5rem]">
-            <ul class="flex flex-col gap-1 list-none">
-                <li v-for="q,k in searchResults" :key="k"
-                class="cursor-pointer w-fit px-2">
-                    {{q.name}}, {{q.admin1}}, {{q.country_code}}
-                </li>
-                <li v-if="!searchResults" class="w-fit px-2 text-error-content">No Results</li>
-            </ul>
+        <div class="absolute text-secondary-content  top-[79%] w-[90.3%] left-[1.5rem]">
+
+            <p v-if="searchError" class="p-2 text-error-content bg-neutral-content">
+                Error. check your internet connection and refresh tha page
+            </p>
+
+            <template v-else>
+                <p v-if="!searchResults && query!==''" class="p-2 text-error-content bg-neutral-content">
+                    No Results
+                </p>
+
+                <ul v-if="searchResults"
+                class="flex flex-col gap-1 list-none p-2 bg-neutral-content">
+                    <li v-for="q,k in searchResults" :key="k"
+                    class="cursor-pointer px-2">
+                        {{q.name}}, {{q.admin1}}, {{q.country_code}}
+                    </li>
+                </ul>
+            </template>
         </div>
         
     </div>
@@ -26,29 +36,27 @@
 <script setup>
 import { ref } from 'vue';
 
-const showResults=ref(null)
 const query=ref("")
 const lazyload=ref(null)
 const searchResults=ref(null)
+const searchError=ref(null)
 
 const getSearchResults=()=>{
     clearTimeout(lazyload.value)
 
-    if(query.value=='') {
-        showResults.value=false
-        return 
-    }
-
     lazyload.value=setTimeout(async ()=>{
-        let data= await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${query.value}&count=5`)
-        
-        data.json().then((data)=>{
+        try{
+            let response= await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${query.value}&count=5`)
+            response.json().then((data)=>{
             searchResults.value=data.results
-            showResults.value=true
-        })
-    }, 500)
+            })
+        }
+        catch(error){
+            searchError.value=true
+        }
+        
+    }, 300)
 
-    
 }
 </script>
 
