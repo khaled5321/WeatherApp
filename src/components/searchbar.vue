@@ -10,7 +10,6 @@
         text-white font-semibold placeholder:text-[#cabffb]">
 
         <div class="absolute text-secondary-content  top-[79%] w-[90.3%] left-[1.5rem]">
-
             <p v-if="searchError" class="p-2 text-error-content bg-neutral-content">
                 Error. check your internet connection and refresh tha page
             </p>
@@ -21,8 +20,8 @@
                 </p>
 
                 <ul v-if="searchResults"
-                class="flex flex-col gap-1 list-none p-2 bg-neutral-content">
-                    <li v-for="q,k in searchResults" :key="k"
+                class="flex flex-col gap-2 list-none p-2 bg-neutral-content">
+                    <li v-for="q,k in searchResults" :key="k" @click="displayResult(q)"
                     class="cursor-pointer px-2">
                         {{q.name}}, {{q.admin1}}, {{q.country_code}}
                     </li>
@@ -35,6 +34,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 const query=ref("")
 const lazyload=ref(null)
@@ -57,6 +59,29 @@ const getSearchResults=()=>{
         
     }, 300)
 
+}
+
+const displayResult = (searchResult)=>{
+    const country= searchResult.country
+    const state = searchResult.admin1
+    const city= searchResult.name
+    const latitude=searchResult.latitude
+    const longitude=searchResult.longitude
+
+    router.push({
+        name:"weather",
+        params:{
+            country:country.replaceAll(" ", ""),
+            state:state.replaceAll(" ", ""),
+            city:city.replaceAll(" ", "")
+        },
+        query:{
+            lat:latitude,
+            long:longitude,
+            preview:true,
+        }
+
+    })
 }
 </script>
 
