@@ -4,7 +4,7 @@
             <AsyncLoad/>
 
             <template #fallback>
-                <h1 class="text-center pt-10 text-2xl">Loading...</h1>
+                <h1 class="loading btn text-2xl bg-transparent border-0 text-center flex mt-[25vh]">loading</h1>
             </template>
         </Suspense>
     </div>
@@ -12,7 +12,5 @@
 
 <script setup>
 import AsyncLoad from '../components/asyncLoad.vue';
-
-
 </script>
 
