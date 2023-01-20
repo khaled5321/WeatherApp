@@ -1,7 +1,11 @@
 <template>
-    <div class="container mx-auto p-5 shadow">
+    <!-- preview -->
+    <p class="text-center py-2 px-5 text-lg bg-info-content">
+            You are currently previewing the city click on &ThinSpace; '+' &ThinSpace; Icon to start tracking the city
+    </p>
+    <div class="container mx-auto px-5">
         <!-- {{  weatherData }} -->
-        <div id="currentWeather" class="bg-transparent flex flex-col text-black px-16 lg:px-44">
+        <div id="currentWeather" class=" py-5 shadow bg-transparent flex flex-col text-black px-16 lg:px-44">
             <div class="bg-white rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto">
                     <img :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
