@@ -7,8 +7,9 @@
         <!-- {{  weatherData }} -->
         <div id="currentWeather" class=" py-5 shadow bg-transparent flex flex-col text-black px-16 lg:px-44">
             <div class="bg-white rounded-tl rounded-tr py-5">
-                <div class="w-24 h-auto mx-auto">
-                    <img :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
+                <div class="w-24 h-auto mx-auto text-center">
+                    <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
+                    <i v-else class="fa-solid fa-moon text-5xl text-blue-500"></i>
                 </div>
             </div>
 
@@ -29,7 +30,7 @@
                 </div>
                 <!-- time -->
                 <div class="flex items-center bg-primary p-2 mr-[-20px] rounded-br">
-                    <p>{{ new Date(weatherData.current_weather.time + ':00.000Z').toLocaleTimeString()}} </p>
+                    <p>{{ currentTime.toLocaleTimeString() }}</p>
                 </div>
             </div>
         </div>
@@ -85,4 +86,9 @@ const weatherCodes = {
     96 : "Thunderstorm with Slight Hail",
     99 : "Thunderstorm with heavy hail"
 }
+
+const currentTime = new Date(weatherData.current_weather.time + ':00.000Z')
+const hours = currentTime.getHours()
+const isDayTime = hours > 6 && hours < 20
+
 </script>
