@@ -5,7 +5,7 @@
     </p>
     <div class="container mx-auto px-5">
         <!-- {{  weatherData }} -->
-        <div id="currentWeather" class=" py-5 shadow bg-transparent flex flex-col text-black px-16 lg:px-44">
+        <div id="currentWeather" class=" py-5 bg-transparent flex flex-col text-black sm:px-6 md:px-24 lg:px-52">
             <div class="bg-white rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto text-center">
                     <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="text-3xl flex bg-black px-5 justify-between text-white rounded-bl rounded-br">
+            <div class="text-xl sm:text-3xl flex bg-black px-5 justify-between gap-4 text-white rounded-bl rounded-br">
                 <!-- temp -->
                 <div class="flex items-center py-2">
                     {{ Math.round(weatherData.current_weather.temperature)}}&deg;
@@ -28,10 +28,10 @@
                     <i class="fa-solid fa-wind"></i>
                     <p>{{ Math.round(weatherData.current_weather.windspeed)}} <small>Km/h</small></p>
                 </div>
-                <!-- time -->
+                <!-- time
                 <div class="flex items-center bg-primary p-2 mr-[-20px] rounded-br">
-                    <p>{{ currentTime.toLocaleTimeString() }}</p>
-                </div>
+                    <p>{{ currentTime.toLocaleTimeString().replace(/:00/g, '') }}</p>
+                </div> -->
             </div>
         </div>
     </div>
