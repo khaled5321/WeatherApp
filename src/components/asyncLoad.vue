@@ -5,7 +5,7 @@
     </p>
     <div class="container mx-auto px-5">
         <!-- {{  weatherData }} -->
-        <div id="currentWeather" class=" py-5 bg-transparent flex flex-col text-black sm:px-6 md:px-24 lg:px-52">
+        <div id="currentWeather" class="py-5 bg-transparent flex flex-col sm:px-6 md:px-24 lg:px-52">
             <div class="bg-slate-200 rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto text-center">
                     <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
@@ -21,7 +21,7 @@
                 <!-- Location -->
                 <div class="flex flex-col py-2">
                     <p>{{ weatherCodes[weatherData.current_weather.weathercode] }}</p>
-                    <p class="font-thin text-xl">{{ route.params.state }}, {{ route.params.city }}</p>
+                    <p class="font-thin text-lg sm:text-xl">{{ route.params.state }}, {{ route.params.city }}</p>
                 </div>
                 <!-- wind -->
                 <div class="flex flex-col py-2">
@@ -33,6 +33,10 @@
                     <p>{{ currentTime.toLocaleTimeString().replace(/:00/g, '') }}</p>
                 </div> -->
             </div>
+        </div>
+
+        <div id="forecast" class="flex text-white sm:px-6 md:px-24 lg:px-52">
+            {{ weatherData.daily }}
         </div>
     </div>
 </template>
