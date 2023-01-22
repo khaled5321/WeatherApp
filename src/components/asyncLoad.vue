@@ -13,9 +13,9 @@
                 </div>
             </div>
 
-            <div class="text-xl sm:text-3xl flex bg-primary-focus px-5 justify-between gap-4 text-white rounded-bl rounded-br">
+            <div class="text-xl sm:text-3xl flex bg-primary-focus px-5 justify-between gap-6 text-white rounded-bl rounded-br">
                 <!-- temp -->
-                <div class="flex items-center py-2">
+                <div class="flex items-center py-2 pr-2">
                     {{ Math.round(weatherData.current_weather.temperature)}}&deg;
                 </div>
                 <!-- Location -->
