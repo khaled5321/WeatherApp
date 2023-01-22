@@ -3,7 +3,7 @@
         <transition name="fade">
             <div v-if="showModal" class="absolute flex items-center w-full top-0 left-0 h-full bg-black bg-opacity-30">
                 <div
-                    class="inner flex flex-col w-[70vw] h-fit mx-auto bg-slate-100 rounded-md p-5 shadow-2xl font-semibold text-black">
+                    class="inner flex flex-col w-[85vw] h-fit mx-auto bg-slate-100 rounded-md p-4 shadow-2xl font-semibold text-black">
                     <div class="flex flex-col gap-2">
                         <h2 class="text-xl text-[#458b7a]">About:</h2>
                         <p class="mb-3">

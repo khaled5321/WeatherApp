@@ -6,14 +6,14 @@
     <div class="container mx-auto px-5">
         <!-- {{  weatherData }} -->
         <div id="currentWeather" class=" py-5 bg-transparent flex flex-col text-black sm:px-6 md:px-24 lg:px-52">
-            <div class="bg-white rounded-tl rounded-tr py-5">
+            <div class="bg-slate-200 rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto text-center">
                     <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
                     <i v-else class="fa-solid fa-moon text-5xl text-blue-500"></i>
                 </div>
             </div>
 
-            <div class="text-xl sm:text-3xl flex bg-black px-5 justify-between gap-4 text-white rounded-bl rounded-br">
+            <div class="text-xl sm:text-3xl flex bg-primary-focus px-5 justify-between gap-4 text-white rounded-bl rounded-br">
                 <!-- temp -->
                 <div class="flex items-center py-2">
                     {{ Math.round(weatherData.current_weather.temperature)}}&deg;
