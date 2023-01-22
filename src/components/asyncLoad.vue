@@ -3,9 +3,9 @@
     <p class="text-center py-2 px-5 text-lg bg-info-content">
             You are currently previewing the city click on &ThinSpace; '+' &ThinSpace; Icon to start tracking the city
     </p>
-    <div class="container mx-auto px-5">
+    <div class="container mx-auto px-5 pb-6">
         <!-- {{  weatherData }} -->
-        <div id="currentWeather" class="py-5 bg-transparent flex flex-col sm:px-6 md:px-24 lg:px-52">
+        <div id="currentWeather" class="py-3 bg-transparent flex flex-col sm:px-6 md:px-24 lg:px-52">
             <div class="bg-slate-200 rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto text-center">
                     <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="text-xl sm:text-3xl flex bg-primary-focus px-5 justify-between gap-6 text-white rounded-bl rounded-br">
+            <div class="text-xl sm:text-3xl flex bg-secondary-content px-5 justify-between gap-6 text-white rounded-bl rounded-br">
                 <!-- temp -->
                 <div class="flex items-center py-2 pr-2">
                     {{ Math.round(weatherData.current_weather.temperature)}}&deg;
@@ -35,8 +35,39 @@
             </div>
         </div>
 
-        <div id="forecast" class="flex text-white sm:px-6 md:px-24 lg:px-52">
-            {{ weatherData.daily }}
+        <div id="Forecast" class="flex flex-col sm:px-6 md:px-24 lg:px-52">
+            <h1 class="font-bold text-3xl border-b-2 mb-5 w-fit">Forecast</h1>
+
+            <div class="text-xl sm:text-3xl flex  text-white rounded overflow-x-scroll">
+
+                <div v-for="item, k in weatherData.daily.time" :key="k"
+                :class="`flex flex-col gap-3 items-center py-2 px-3 min-w-fit ${setBackground()}`">
+                    <!-- date -->
+                    <p v-if="currentTime.setHours(0,0,0,0) == new Date(item).setHours(0,0,0,0)">Today</p>
+                    <p v-else class="">{{new Date(item).toDateString().slice(4,10)}}</p>  
+
+                    <!-- weather img -->
+                    <div class="w-12 h-auto mx-auto text-center">
+                        <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.daily.weathercode[k]}.png`"/>
+                    </div>
+
+                    <!-- temp high -->
+                    <div>
+                        <p class="font-bold">{{ Math.round(weatherData.daily.temperature_2m_max[k]) }}&deg;</p> 
+                    </div>
+
+                    <!-- temp low -->
+                    <div>
+                        <p class="font-thin">{{ Math.round(weatherData.daily.temperature_2m_min[k]) }}&deg;</p> 
+                    </div>
+
+                    <!-- wind -->
+                    <div class="flex flex-col items-center">
+                        <small class="fa-solid fa-wind"></small>
+                        <p class="text-lg">{{ Math.round(weatherData.daily.windspeed_10m_max[k])}} <small>Km/h</small></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -95,4 +126,9 @@ const currentTime = new Date(weatherData.current_weather.time + ':00.000Z')
 const hours = currentTime.getHours()
 const isDayTime = hours > 6 && hours < 20
 
+let background = 'bg-success-content'
+const setBackground = () =>{
+    background = background == 'bg-success-content'?  'bg-info-content' : 'bg-success-content';
+    return background
+}
 </script>
