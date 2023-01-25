@@ -1,7 +1,8 @@
 <template>
     <!-- preview -->
     <p class="text-center py-2 px-5 text-lg bg-info-content">
-            You are currently previewing the city click on &ThinSpace; '+' &ThinSpace; Icon to start tracking the city
+        <span v-if="route.query.preview">You are currently previewing the city click on &ThinSpace; '+' &ThinSpace; Icon to start tracking the city</span> 
+        <span v-else class="text-success">You are currently tracking this City. <span @click="untrackCity()" class="text-warning underline cursor-pointer">Untrack</span></span> 
     </p>
     <div class="container mx-auto px-5 pb-6">
         <!-- {{  weatherData }} -->
@@ -75,6 +76,10 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
+
+const untrackCity = ()=>{
+
+}
 
 const route = useRoute();
 
