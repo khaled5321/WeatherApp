@@ -74,14 +74,37 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { useRoute } from "vue-router";
-
-const untrackCity = ()=>{
-
-}
+import { useRouter } from "vue-router";
+import { useSavedCities } from '../compositions/citiesComposition';
 
 const route = useRoute();
+const router = useRouter();
+const { savedCities } = useSavedCities();
+
+if(savedCities.value){
+    savedCities.value.forEach(element => {
+        if((element.lat === route.query.lat) && (element.long === route.query.long) ){
+            let query = Object.assign({}, route.query)
+            delete query.preview;
+            router.replace({ query });
+        }
+    });
+}
+
+const untrackCity = () => {
+    if(savedCities.value){
+    savedCities.value.forEach((element, index) => {
+        if((element.lat === route.query.lat) && (element.long === route.query.long) ){
+            delete savedCities.value[index]
+            localStorage.setItem('cities', JSON.stringify(savedCities.value))
+            let query = Object.assign({}, route.query)
+            query.preview = true;
+            router.replace({ query });
+        }
+    });
+}
+}
 
 const getWeatherData = async () =>{
     try{

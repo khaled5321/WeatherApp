@@ -28,22 +28,21 @@
 import { ref } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';
 import { useRoute } from "vue-router";
-import { v1 as uuidv1 } from 'uuid'
+import { v1 as uuidv1 } from 'uuid';
+import { useSavedCities } from '../compositions/citiesComposition';
 import Modal from './modal.vue';
 
 const route = useRoute();
 const router = useRouter();
-
-const showModal=ref(null)
-
+const showModal=ref(null);
+const { savedCities } = useSavedCities();
 const toggleModal=()=>{
     showModal.value=!showModal.value
 }
 
-let savedCities = ref([])
 if(localStorage.getItem('cities')){
     savedCities.value = JSON.parse(localStorage.getItem('cities'))
-    console.log(savedCities.value)
+
 }
 const saveCity = () => {
     let city = {
