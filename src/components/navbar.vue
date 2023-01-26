@@ -49,6 +49,7 @@ const saveCity = () => {
         id: uuidv1(),
         state: route.params.state,
         city: route.params.city,
+        country: route.params.country,
         lat: route.query.lat,
         long: route.query.long,
     }

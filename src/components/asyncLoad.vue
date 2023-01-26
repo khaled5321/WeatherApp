@@ -5,7 +5,6 @@
         <span v-else class="text-success">You are currently tracking this City. <span @click="untrackCity()" class="text-warning underline cursor-pointer">Untrack</span></span> 
     </p>
     <div class="container mx-auto px-5 pb-6">
-        <!-- {{  weatherData }} -->
         <div id="currentWeather" class="py-3 bg-transparent flex flex-col sm:px-6 md:px-24 lg:px-52">
             <div class="bg-slate-200 rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto text-center">
