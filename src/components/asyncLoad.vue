@@ -91,12 +91,11 @@ if(savedCities.value){
         }
     });
 }
-
 const untrackCity = () => {
     if(savedCities.value){
     savedCities.value.forEach((element, index) => {
         if((element.lat === route.query.lat) && (element.long === route.query.long) ){
-            delete savedCities.value[index]
+            savedCities.value.splice(index,1);
             localStorage.setItem('cities', JSON.stringify(savedCities.value))
             let query = Object.assign({}, route.query)
             query.preview = true;
