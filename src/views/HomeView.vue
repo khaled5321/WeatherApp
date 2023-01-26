@@ -5,5 +5,7 @@ import Searchbar from '../components/searchbar.vue';
 <template>
   <main>
     <Searchbar/>
+
+    
   </main>
 </template>

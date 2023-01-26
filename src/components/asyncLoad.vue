@@ -9,8 +9,8 @@
         <div id="currentWeather" class="py-3 bg-transparent flex flex-col sm:px-6 md:px-24 lg:px-52">
             <div class="bg-slate-200 rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto text-center">
-                    <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
-                    <i v-else class="fa-solid fa-moon text-5xl text-blue-500"></i>
+                    <img  :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
+                    <!-- <i v-else class="fa-solid fa-moon text-5xl text-blue-500"></i> -->
                 </div>
             </div>
 
@@ -108,7 +108,7 @@ const untrackCity = () => {
 
 const getWeatherData = async () =>{
     try{
-        const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${route.query.lat}&longitude=${route.query.long}&hourly=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&current_weather=true&timezone=Europe%2FLondon`)
+        const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${route.query.lat}&longitude=${route.query.long}&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&current_weather=true&timezone=Europe%2FLondon`)
         const data = await res.json()
         return data
 
