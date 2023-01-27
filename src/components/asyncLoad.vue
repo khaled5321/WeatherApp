@@ -8,7 +8,7 @@
         <div id="currentWeather" class="py-3 bg-transparent flex flex-col sm:px-6 md:px-24 lg:px-52">
             <div class="bg-slate-200 rounded-tl rounded-tr py-5">
                 <div class="w-24 h-auto mx-auto text-center">
-                    <img  :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"/>
+                    <img  :src="`/imgs/${weatherData.current_weather.weathercode}.png`"/>
                     <!-- <i v-else class="fa-solid fa-moon text-5xl text-blue-500"></i> -->
                 </div>
             </div>

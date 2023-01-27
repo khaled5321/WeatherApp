@@ -8,7 +8,7 @@
 
         <div class="flex flex-col">
             <div class="bg-white flex justify-center rounded-tr">
-                <img :src="`/src/assets/imgs/${weatherData.current_weather.weathercode}.png`"
+                <img :src="`/imgs/${weatherData.current_weather.weathercode}.png`"
                 class="w-24 h-auto"/>
             </div>
 
