@@ -1,6 +1,6 @@
 # weatherapp
 
-This template should help get you started developing with Vue 3 in Vite.
+Live Site: https://weatherapp5321.netlify.app/
 
 ## Recommended IDE Setup
 
