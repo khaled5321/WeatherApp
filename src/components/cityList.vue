@@ -5,7 +5,7 @@
             />
             
             <template #fallback>
-                <h1 class="loading btn text-2xl bg-transparent border-0 text-center flex">loading</h1>
+                <h1 class="loading btn text-2xl bg-transparent border-0 mx-auto flex">loading</h1>
             </template>
         </Suspense>
     </div>

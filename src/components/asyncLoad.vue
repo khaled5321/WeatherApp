@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div id="Forecast" class="flex flex-col sm:px-6 md:px-24 lg:px-52">
+        <div id="Forecast" class="flex flex-col pt-4 sm:px-6 md:px-24 lg:px-52">
             <h1 class="font-bold text-3xl border-b-2 mb-5 w-fit">Forecast</h1>
 
             <div class="text-xl sm:text-3xl flex  text-white rounded overflow-x-scroll">
@@ -116,6 +116,8 @@ const getWeatherData = async () =>{
 }
 
 const weatherData = await getWeatherData()
+// deal with page flicker
+await new Promise((res)=>{ setTimeout(res, 500) })
 
 const weatherCodes = {
     0 :	"Clear Sky",
