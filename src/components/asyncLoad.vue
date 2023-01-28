@@ -48,7 +48,7 @@
 
                     <!-- weather img -->
                     <div class="w-12 h-auto mx-auto text-center">
-                        <img v-if="isDayTime" :src="`/src/assets/imgs/${weatherData.daily.weathercode[k]}.png`"/>
+                        <img v-if="isDayTime" :src="`/imgs/${weatherData.daily.weathercode[k]}.png`"/>
                     </div>
 
                     <!-- temp high -->
